@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53EADB7244B56C5CF0B5575B /* Pods_StackoverflowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD213D703DA116C93E51F77B /* Pods_StackoverflowClient.framework */; };
 		D05EDAC1237E5D4200CA1742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAC0237E5D4200CA1742 /* AppDelegate.swift */; };
 		D05EDAC3237E5D4200CA1742 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAC2237E5D4200CA1742 /* SceneDelegate.swift */; };
 		D05EDAC5237E5D4200CA1742 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAC4237E5D4200CA1742 /* ViewController.swift */; };
@@ -14,6 +15,7 @@
 		D05EDACA237E5D4500CA1742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D05EDAC9237E5D4500CA1742 /* Assets.xcassets */; };
 		D05EDACD237E5D4500CA1742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05EDACB237E5D4500CA1742 /* LaunchScreen.storyboard */; };
 		D05EDAD8237E5D4500CA1742 /* StackoverflowClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAD7237E5D4500CA1742 /* StackoverflowClientTests.swift */; };
+		FCBF039344D12A3F5D8ACCD8 /* Pods_StackoverflowClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA690C7E485CC045C3A72C4 /* Pods_StackoverflowClientTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04208B5D6E665F6A70BA36E5 /* Pods-StackoverflowClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackoverflowClientTests.release.xcconfig"; path = "Target Support Files/Pods-StackoverflowClientTests/Pods-StackoverflowClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		9C882A6C470EB60EC246E2EC /* Pods-StackoverflowClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackoverflowClientTests.debug.xcconfig"; path = "Target Support Files/Pods-StackoverflowClientTests/Pods-StackoverflowClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A3D6ADF47A5FCF75929BB4BA /* Pods-StackoverflowClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackoverflowClient.release.xcconfig"; path = "Target Support Files/Pods-StackoverflowClient/Pods-StackoverflowClient.release.xcconfig"; sourceTree = "<group>"; };
+		A4A46F97ED71589ADEB3404A /* Pods-StackoverflowClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackoverflowClient.debug.xcconfig"; path = "Target Support Files/Pods-StackoverflowClient/Pods-StackoverflowClient.debug.xcconfig"; sourceTree = "<group>"; };
+		CEA690C7E485CC045C3A72C4 /* Pods_StackoverflowClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackoverflowClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05EDABD237E5D4200CA1742 /* StackoverflowClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackoverflowClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05EDAC0237E5D4200CA1742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D05EDAC2237E5D4200CA1742 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +45,7 @@
 		D05EDAD3237E5D4500CA1742 /* StackoverflowClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackoverflowClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05EDAD7237E5D4500CA1742 /* StackoverflowClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackoverflowClientTests.swift; sourceTree = "<group>"; };
 		D05EDAD9237E5D4500CA1742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD213D703DA116C93E51F77B /* Pods_StackoverflowClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackoverflowClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53EADB7244B56C5CF0B5575B /* Pods_StackoverflowClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +61,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCBF039344D12A3F5D8ACCD8 /* Pods_StackoverflowClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E20A219EEFAD3396355224C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD213D703DA116C93E51F77B /* Pods_StackoverflowClient.framework */,
+				CEA690C7E485CC045C3A72C4 /* Pods_StackoverflowClientTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CD7AC60214A59115CB99AE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4A46F97ED71589ADEB3404A /* Pods-StackoverflowClient.debug.xcconfig */,
+				A3D6ADF47A5FCF75929BB4BA /* Pods-StackoverflowClient.release.xcconfig */,
+				9C882A6C470EB60EC246E2EC /* Pods-StackoverflowClientTests.debug.xcconfig */,
+				04208B5D6E665F6A70BA36E5 /* Pods-StackoverflowClientTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D05EDAB4237E5D4200CA1742 = {
 			isa = PBXGroup;
 			children = (
 				D05EDABF237E5D4200CA1742 /* StackoverflowClient */,
 				D05EDAD6237E5D4500CA1742 /* StackoverflowClientTests */,
 				D05EDABE237E5D4200CA1742 /* Products */,
+				6CD7AC60214A59115CB99AE3 /* Pods */,
+				5E20A219EEFAD3396355224C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D05EDADC237E5D4500CA1742 /* Build configuration list for PBXNativeTarget "StackoverflowClient" */;
 			buildPhases = (
+				85BB6BD8370B35BC24E40983 /* [CP] Check Pods Manifest.lock */,
 				D05EDAB9237E5D4200CA1742 /* Sources */,
 				D05EDABA237E5D4200CA1742 /* Frameworks */,
 				D05EDABB237E5D4200CA1742 /* Resources */,
+				CE0F5594AD9F173396F05089 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D05EDADF237E5D4500CA1742 /* Build configuration list for PBXNativeTarget "StackoverflowClientTests" */;
 			buildPhases = (
+				A4CA2CBA7842C793599B8AD7 /* [CP] Check Pods Manifest.lock */,
 				D05EDACF237E5D4500CA1742 /* Sources */,
 				D05EDAD0237E5D4500CA1742 /* Frameworks */,
 				D05EDAD1237E5D4500CA1742 /* Resources */,
@@ -194,6 +229,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		85BB6BD8370B35BC24E40983 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StackoverflowClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4CA2CBA7842C793599B8AD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StackoverflowClientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE0F5594AD9F173396F05089 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StackoverflowClient/Pods-StackoverflowClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StackoverflowClient/Pods-StackoverflowClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StackoverflowClient/Pods-StackoverflowClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D05EDAB9237E5D4200CA1742 /* Sources */ = {
@@ -360,11 +459,13 @@
 		};
 		D05EDADD237E5D4500CA1742 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4A46F97ED71589ADEB3404A /* Pods-StackoverflowClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A7N8B7Z6Y;
 				INFOPLIST_FILE = StackoverflowClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,17 +473,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = anug.StackoverflowClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D05EDADE237E5D4500CA1742 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3D6ADF47A5FCF75929BB4BA /* Pods-StackoverflowClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A7N8B7Z6Y;
 				INFOPLIST_FILE = StackoverflowClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,12 +493,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = anug.StackoverflowClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		D05EDAE0237E5D4500CA1742 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C882A6C470EB60EC246E2EC /* Pods-StackoverflowClientTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -418,6 +522,7 @@
 		};
 		D05EDAE1237E5D4500CA1742 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04208B5D6E665F6A70BA36E5 /* Pods-StackoverflowClientTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -1,0 +1,6 @@
+framework module Pods_StackoverflowClient {
+  umbrella header "Pods-StackoverflowClient-umbrella.h"
+
+  export *
+  module * { export * }
+}
