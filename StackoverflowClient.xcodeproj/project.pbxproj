@@ -8,13 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		53EADB7244B56C5CF0B5575B /* Pods_StackoverflowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD213D703DA116C93E51F77B /* Pods_StackoverflowClient.framework */; };
+		D035B5E5237F2929000A4FC4 /* SCNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D035B5E4237F2929000A4FC4 /* SCNetworkManager.swift */; };
+		D035B5EB237F361B000A4FC4 /* SCAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D035B5EA237F361B000A4FC4 /* SCAuthentication.swift */; };
+		D035B5ED237F5338000A4FC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D035B5EC237F5338000A4FC4 /* Utilities.swift */; };
+		D035B5EF237FE375000A4FC4 /* SCConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D035B5EE237FE375000A4FC4 /* SCConstants.swift */; };
+		D035B5F123801B2C000A4FC4 /* SCQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D035B5F023801B2C000A4FC4 /* SCQuestion.swift */; };
+		D035B5F3238087B1000A4FC4 /* SCAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D035B5F2238087B1000A4FC4 /* SCAPIRouter.swift */; };
 		D05EDAC1237E5D4200CA1742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAC0237E5D4200CA1742 /* AppDelegate.swift */; };
 		D05EDAC3237E5D4200CA1742 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAC2237E5D4200CA1742 /* SceneDelegate.swift */; };
-		D05EDAC5237E5D4200CA1742 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAC4237E5D4200CA1742 /* ViewController.swift */; };
 		D05EDAC8237E5D4200CA1742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05EDAC6237E5D4200CA1742 /* Main.storyboard */; };
 		D05EDACA237E5D4500CA1742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D05EDAC9237E5D4500CA1742 /* Assets.xcassets */; };
 		D05EDACD237E5D4500CA1742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05EDACB237E5D4500CA1742 /* LaunchScreen.storyboard */; };
 		D05EDAD8237E5D4500CA1742 /* StackoverflowClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDAD7237E5D4500CA1742 /* StackoverflowClientTests.swift */; };
+		D091CA0E2380A2720098BA20 /* SCAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA0D2380A2720098BA20 /* SCAuthManager.swift */; };
+		D091CA122380A2F40098BA20 /* SCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA112380A2F40098BA20 /* SCLoginViewController.swift */; };
+		D091CA142380B6920098BA20 /* SCQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA132380B6920098BA20 /* SCQuestionViewController.swift */; };
+		D091CA162380B6B40098BA20 /* SCQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA152380B6B40098BA20 /* SCQuestionViewModel.swift */; };
+		D091CA1923811ADD0098BA20 /* SCQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA1823811ADD0098BA20 /* SCQuestionTableViewCell.swift */; };
+		D091CA1B23811B630098BA20 /* SCQuestionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA1A23811B630098BA20 /* SCQuestionCellViewModel.swift */; };
+		D091CA1F23812A7B0098BA20 /* SCMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA1E23812A7B0098BA20 /* SCMyPostViewController.swift */; };
+		D091CA2123812A8F0098BA20 /* SCAllPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2023812A8F0098BA20 /* SCAllPostsViewController.swift */; };
+		D091CA24238165660098BA20 /* SCTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA23238165660098BA20 /* SCTagCollectionViewCell.swift */; };
+		D091CA2623818B4D0098BA20 /* SCMyPostControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2523818B4D0098BA20 /* SCMyPostControllerViewModel.swift */; };
+		D091CA292381A9DC0098BA20 /* SCQuestionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA282381A9DC0098BA20 /* SCQuestionNavigationController.swift */; };
+		D091CA2C2381C99B0098BA20 /* SCSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2B2381C99B0098BA20 /* SCSettingsViewController.swift */; };
+		D091CA2E2381C9AE0098BA20 /* SCSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2D2381C9AE0098BA20 /* SCSettingsViewModel.swift */; };
 		FCBF039344D12A3F5D8ACCD8 /* Pods_StackoverflowClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA690C7E485CC045C3A72C4 /* Pods_StackoverflowClientTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,10 +52,15 @@
 		A3D6ADF47A5FCF75929BB4BA /* Pods-StackoverflowClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackoverflowClient.release.xcconfig"; path = "Target Support Files/Pods-StackoverflowClient/Pods-StackoverflowClient.release.xcconfig"; sourceTree = "<group>"; };
 		A4A46F97ED71589ADEB3404A /* Pods-StackoverflowClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackoverflowClient.debug.xcconfig"; path = "Target Support Files/Pods-StackoverflowClient/Pods-StackoverflowClient.debug.xcconfig"; sourceTree = "<group>"; };
 		CEA690C7E485CC045C3A72C4 /* Pods_StackoverflowClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackoverflowClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D035B5E4237F2929000A4FC4 /* SCNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNetworkManager.swift; sourceTree = "<group>"; };
+		D035B5EA237F361B000A4FC4 /* SCAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAuthentication.swift; sourceTree = "<group>"; };
+		D035B5EC237F5338000A4FC4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		D035B5EE237FE375000A4FC4 /* SCConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConstants.swift; sourceTree = "<group>"; };
+		D035B5F023801B2C000A4FC4 /* SCQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestion.swift; sourceTree = "<group>"; };
+		D035B5F2238087B1000A4FC4 /* SCAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAPIRouter.swift; sourceTree = "<group>"; };
 		D05EDABD237E5D4200CA1742 /* StackoverflowClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackoverflowClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05EDAC0237E5D4200CA1742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D05EDAC2237E5D4200CA1742 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D05EDAC4237E5D4200CA1742 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D05EDAC7237E5D4200CA1742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D05EDAC9237E5D4500CA1742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D05EDACC237E5D4500CA1742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,6 +68,19 @@
 		D05EDAD3237E5D4500CA1742 /* StackoverflowClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackoverflowClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05EDAD7237E5D4500CA1742 /* StackoverflowClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackoverflowClientTests.swift; sourceTree = "<group>"; };
 		D05EDAD9237E5D4500CA1742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D091CA0D2380A2720098BA20 /* SCAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAuthManager.swift; sourceTree = "<group>"; };
+		D091CA112380A2F40098BA20 /* SCLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLoginViewController.swift; sourceTree = "<group>"; };
+		D091CA132380B6920098BA20 /* SCQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionViewController.swift; sourceTree = "<group>"; };
+		D091CA152380B6B40098BA20 /* SCQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionViewModel.swift; sourceTree = "<group>"; };
+		D091CA1823811ADD0098BA20 /* SCQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		D091CA1A23811B630098BA20 /* SCQuestionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionCellViewModel.swift; sourceTree = "<group>"; };
+		D091CA1E23812A7B0098BA20 /* SCMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMyPostViewController.swift; sourceTree = "<group>"; };
+		D091CA2023812A8F0098BA20 /* SCAllPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAllPostsViewController.swift; sourceTree = "<group>"; };
+		D091CA23238165660098BA20 /* SCTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		D091CA2523818B4D0098BA20 /* SCMyPostControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMyPostControllerViewModel.swift; sourceTree = "<group>"; };
+		D091CA282381A9DC0098BA20 /* SCQuestionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionNavigationController.swift; sourceTree = "<group>"; };
+		D091CA2B2381C99B0098BA20 /* SCSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSettingsViewController.swift; sourceTree = "<group>"; };
+		D091CA2D2381C9AE0098BA20 /* SCSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSettingsViewModel.swift; sourceTree = "<group>"; };
 		FD213D703DA116C93E51F77B /* Pods_StackoverflowClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackoverflowClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +124,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D035B5E3237F2909000A4FC4 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				D035B5E9237F35EC000A4FC4 /* Model */,
+				D035B5E4237F2929000A4FC4 /* SCNetworkManager.swift */,
+				D035B5F2238087B1000A4FC4 /* SCAPIRouter.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		D035B5E8237F351E000A4FC4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D035B5EC237F5338000A4FC4 /* Utilities.swift */,
+				D035B5EE237FE375000A4FC4 /* SCConstants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D035B5E9237F35EC000A4FC4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D035B5EA237F361B000A4FC4 /* SCAuthentication.swift */,
+				D035B5F023801B2C000A4FC4 /* SCQuestion.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D05EDAB4237E5D4200CA1742 = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +175,17 @@
 		D05EDABF237E5D4200CA1742 /* StackoverflowClient */ = {
 			isa = PBXGroup;
 			children = (
-				D05EDAC0237E5D4200CA1742 /* AppDelegate.swift */,
+				D091CA2A2381C97D0098BA20 /* Settings */,
+				D091CA272381A99F0098BA20 /* NavigationController */,
+				D091CA1D23812A3D0098BA20 /* MyPosts */,
+				D091CA1C23812A270098BA20 /* AllPosts */,
+				D091CA102380A2D00098BA20 /* Question */,
+				D091CA0F2380A2C80098BA20 /* Login */,
+				D091CA0C2380A2580098BA20 /* AuthManager */,
+				D035B5E8237F351E000A4FC4 /* Utilities */,
+				D035B5E3237F2909000A4FC4 /* NetworkManager */,
 				D05EDAC2237E5D4200CA1742 /* SceneDelegate.swift */,
-				D05EDAC4237E5D4200CA1742 /* ViewController.swift */,
+				D05EDAC0237E5D4200CA1742 /* AppDelegate.swift */,
 				D05EDAC6237E5D4200CA1742 /* Main.storyboard */,
 				D05EDAC9237E5D4500CA1742 /* Assets.xcassets */,
 				D05EDACB237E5D4500CA1742 /* LaunchScreen.storyboard */,
@@ -129,6 +201,84 @@
 				D05EDAD9237E5D4500CA1742 /* Info.plist */,
 			);
 			path = StackoverflowClientTests;
+			sourceTree = "<group>";
+		};
+		D091CA0C2380A2580098BA20 /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA0D2380A2720098BA20 /* SCAuthManager.swift */,
+			);
+			path = AuthManager;
+			sourceTree = "<group>";
+		};
+		D091CA0F2380A2C80098BA20 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA112380A2F40098BA20 /* SCLoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D091CA102380A2D00098BA20 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA132380B6920098BA20 /* SCQuestionViewController.swift */,
+				D091CA152380B6B40098BA20 /* SCQuestionViewModel.swift */,
+				D091CA172380B6BC0098BA20 /* View */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		D091CA172380B6BC0098BA20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA1823811ADD0098BA20 /* SCQuestionTableViewCell.swift */,
+				D091CA1A23811B630098BA20 /* SCQuestionCellViewModel.swift */,
+				D091CA222381654B0098BA20 /* Tag */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D091CA1C23812A270098BA20 /* AllPosts */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA2023812A8F0098BA20 /* SCAllPostsViewController.swift */,
+			);
+			path = AllPosts;
+			sourceTree = "<group>";
+		};
+		D091CA1D23812A3D0098BA20 /* MyPosts */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA1E23812A7B0098BA20 /* SCMyPostViewController.swift */,
+				D091CA2523818B4D0098BA20 /* SCMyPostControllerViewModel.swift */,
+			);
+			path = MyPosts;
+			sourceTree = "<group>";
+		};
+		D091CA222381654B0098BA20 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA23238165660098BA20 /* SCTagCollectionViewCell.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		D091CA272381A99F0098BA20 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA282381A9DC0098BA20 /* SCQuestionNavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		D091CA2A2381C97D0098BA20 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D091CA2B2381C99B0098BA20 /* SCSettingsViewController.swift */,
+				D091CA2D2381C9AE0098BA20 /* SCSettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +328,7 @@
 		D05EDAB5237E5D4200CA1742 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SC;
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Anugheerthi E S";
@@ -299,9 +450,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D05EDAC5237E5D4200CA1742 /* ViewController.swift in Sources */,
+				D091CA2123812A8F0098BA20 /* SCAllPostsViewController.swift in Sources */,
+				D091CA142380B6920098BA20 /* SCQuestionViewController.swift in Sources */,
+				D035B5EF237FE375000A4FC4 /* SCConstants.swift in Sources */,
+				D091CA162380B6B40098BA20 /* SCQuestionViewModel.swift in Sources */,
+				D035B5F123801B2C000A4FC4 /* SCQuestion.swift in Sources */,
+				D035B5F3238087B1000A4FC4 /* SCAPIRouter.swift in Sources */,
+				D035B5ED237F5338000A4FC4 /* Utilities.swift in Sources */,
+				D035B5E5237F2929000A4FC4 /* SCNetworkManager.swift in Sources */,
 				D05EDAC1237E5D4200CA1742 /* AppDelegate.swift in Sources */,
+				D091CA292381A9DC0098BA20 /* SCQuestionNavigationController.swift in Sources */,
+				D091CA0E2380A2720098BA20 /* SCAuthManager.swift in Sources */,
+				D091CA2623818B4D0098BA20 /* SCMyPostControllerViewModel.swift in Sources */,
+				D091CA1923811ADD0098BA20 /* SCQuestionTableViewCell.swift in Sources */,
+				D035B5EB237F361B000A4FC4 /* SCAuthentication.swift in Sources */,
+				D091CA2E2381C9AE0098BA20 /* SCSettingsViewModel.swift in Sources */,
+				D091CA122380A2F40098BA20 /* SCLoginViewController.swift in Sources */,
+				D091CA2C2381C99B0098BA20 /* SCSettingsViewController.swift in Sources */,
+				D091CA1B23811B630098BA20 /* SCQuestionCellViewModel.swift in Sources */,
 				D05EDAC3237E5D4200CA1742 /* SceneDelegate.swift in Sources */,
+				D091CA1F23812A7B0098BA20 /* SCMyPostViewController.swift in Sources */,
+				D091CA24238165660098BA20 /* SCTagCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
