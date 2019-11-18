@@ -26,10 +26,7 @@
 		D091CA162380B6B40098BA20 /* SCQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA152380B6B40098BA20 /* SCQuestionViewModel.swift */; };
 		D091CA1923811ADD0098BA20 /* SCQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA1823811ADD0098BA20 /* SCQuestionTableViewCell.swift */; };
 		D091CA1B23811B630098BA20 /* SCQuestionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA1A23811B630098BA20 /* SCQuestionCellViewModel.swift */; };
-		D091CA1F23812A7B0098BA20 /* SCMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA1E23812A7B0098BA20 /* SCMyPostViewController.swift */; };
-		D091CA2123812A8F0098BA20 /* SCAllPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2023812A8F0098BA20 /* SCAllPostsViewController.swift */; };
 		D091CA24238165660098BA20 /* SCTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA23238165660098BA20 /* SCTagCollectionViewCell.swift */; };
-		D091CA2623818B4D0098BA20 /* SCMyPostControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2523818B4D0098BA20 /* SCMyPostControllerViewModel.swift */; };
 		D091CA292381A9DC0098BA20 /* SCQuestionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA282381A9DC0098BA20 /* SCQuestionNavigationController.swift */; };
 		D091CA2C2381C99B0098BA20 /* SCSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2B2381C99B0098BA20 /* SCSettingsViewController.swift */; };
 		D091CA2E2381C9AE0098BA20 /* SCSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CA2D2381C9AE0098BA20 /* SCSettingsViewModel.swift */; };
@@ -74,10 +71,7 @@
 		D091CA152380B6B40098BA20 /* SCQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionViewModel.swift; sourceTree = "<group>"; };
 		D091CA1823811ADD0098BA20 /* SCQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		D091CA1A23811B630098BA20 /* SCQuestionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionCellViewModel.swift; sourceTree = "<group>"; };
-		D091CA1E23812A7B0098BA20 /* SCMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMyPostViewController.swift; sourceTree = "<group>"; };
-		D091CA2023812A8F0098BA20 /* SCAllPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCAllPostsViewController.swift; sourceTree = "<group>"; };
 		D091CA23238165660098BA20 /* SCTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		D091CA2523818B4D0098BA20 /* SCMyPostControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMyPostControllerViewModel.swift; sourceTree = "<group>"; };
 		D091CA282381A9DC0098BA20 /* SCQuestionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCQuestionNavigationController.swift; sourceTree = "<group>"; };
 		D091CA2B2381C99B0098BA20 /* SCSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSettingsViewController.swift; sourceTree = "<group>"; };
 		D091CA2D2381C9AE0098BA20 /* SCSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSettingsViewModel.swift; sourceTree = "<group>"; };
@@ -177,8 +171,6 @@
 			children = (
 				D091CA2A2381C97D0098BA20 /* Settings */,
 				D091CA272381A99F0098BA20 /* NavigationController */,
-				D091CA1D23812A3D0098BA20 /* MyPosts */,
-				D091CA1C23812A270098BA20 /* AllPosts */,
 				D091CA102380A2D00098BA20 /* Question */,
 				D091CA0F2380A2C80098BA20 /* Login */,
 				D091CA0C2380A2580098BA20 /* AuthManager */,
@@ -237,23 +229,6 @@
 				D091CA222381654B0098BA20 /* Tag */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D091CA1C23812A270098BA20 /* AllPosts */ = {
-			isa = PBXGroup;
-			children = (
-				D091CA2023812A8F0098BA20 /* SCAllPostsViewController.swift */,
-			);
-			path = AllPosts;
-			sourceTree = "<group>";
-		};
-		D091CA1D23812A3D0098BA20 /* MyPosts */ = {
-			isa = PBXGroup;
-			children = (
-				D091CA1E23812A7B0098BA20 /* SCMyPostViewController.swift */,
-				D091CA2523818B4D0098BA20 /* SCMyPostControllerViewModel.swift */,
-			);
-			path = MyPosts;
 			sourceTree = "<group>";
 		};
 		D091CA222381654B0098BA20 /* Tag */ = {
@@ -450,7 +425,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D091CA2123812A8F0098BA20 /* SCAllPostsViewController.swift in Sources */,
 				D091CA142380B6920098BA20 /* SCQuestionViewController.swift in Sources */,
 				D035B5EF237FE375000A4FC4 /* SCConstants.swift in Sources */,
 				D091CA162380B6B40098BA20 /* SCQuestionViewModel.swift in Sources */,
@@ -461,7 +435,6 @@
 				D05EDAC1237E5D4200CA1742 /* AppDelegate.swift in Sources */,
 				D091CA292381A9DC0098BA20 /* SCQuestionNavigationController.swift in Sources */,
 				D091CA0E2380A2720098BA20 /* SCAuthManager.swift in Sources */,
-				D091CA2623818B4D0098BA20 /* SCMyPostControllerViewModel.swift in Sources */,
 				D091CA1923811ADD0098BA20 /* SCQuestionTableViewCell.swift in Sources */,
 				D035B5EB237F361B000A4FC4 /* SCAuthentication.swift in Sources */,
 				D091CA2E2381C9AE0098BA20 /* SCSettingsViewModel.swift in Sources */,
@@ -469,7 +442,6 @@
 				D091CA2C2381C99B0098BA20 /* SCSettingsViewController.swift in Sources */,
 				D091CA1B23811B630098BA20 /* SCQuestionCellViewModel.swift in Sources */,
 				D05EDAC3237E5D4200CA1742 /* SceneDelegate.swift in Sources */,
-				D091CA1F23812A7B0098BA20 /* SCMyPostViewController.swift in Sources */,
 				D091CA24238165660098BA20 /* SCTagCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

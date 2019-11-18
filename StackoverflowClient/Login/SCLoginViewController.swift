@@ -60,13 +60,13 @@ extension SCLoginViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        guard let responseURL = navigationResponse.response.url else {
+        guard let responseURL = navigationResponse.response.url, let responseURLCompoent = URLComponents(string: responseURL.absoluteString) else {
             presentAlert("No Response URL.")
             decisionHandler(.cancel)
             return
         }
         
-        if responseURL.host == "m.facebook.com" || responseURL.host == "stackoverflow.com" || responseURL.host == "www.google.com" {
+        if responseURLCompoent.host == "m.facebook.com" || responseURLCompoent.host == "stackoverflow.com" || responseURLCompoent.host == "www.google.com" {
             decisionHandler(.allow)
         } else if responseURL.path == "/oauth/login_success" {
             decisionHandler(.allow)
@@ -76,6 +76,14 @@ extension SCLoginViewController: WKNavigationDelegate {
                     return
                 }
                 strongSelf.dismiss(animated: true, completion: strongSelf.successLoginCompletion)
+            }
+        } else if responseURLCompoent.fragment == "error=access_denied&error_description=user did not authorize application" {
+            decisionHandler(.allow)
+            presentAlert("You did not authorize application.") { [weak self] in
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.dismiss(animated: true, completion: nil)
             }
         } else {
             decisionHandler(.cancel)
