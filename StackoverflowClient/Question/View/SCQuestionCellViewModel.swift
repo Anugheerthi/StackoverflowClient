@@ -17,7 +17,7 @@ class SCQuestionCellViewModel: NSObject {
     }
     
     var questionTitle: String {
-        questionInfo.questionTitle.decodeUTF8String()
+        questionInfo.questionTitle.stringByDecodingHTMLEntities
     }
     
     var upvoteCount: String {
@@ -38,7 +38,7 @@ class SCQuestionCellViewModel: NSObject {
             return ""
         }
         
-        return "asked \(posterTimeStamp) by \(questionInfo.questionPosterUserName.decodeUTF8String())"
+        return "asked \(posterTimeStamp) by \(questionInfo.questionPosterUserName.stringByDecodingHTMLEntities)"
     }
     
     private var posterTimeStamp: String {
