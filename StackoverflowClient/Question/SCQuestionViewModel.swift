@@ -57,11 +57,9 @@ class SCQuestionViewModel: NSObject {
             strongSelf.requestInprogress = false
             switch result {
                 case .success(let questions):
-                    debugPrint(questions)
                     strongSelf.questionsModel = questions
                     completion(.success(strongSelf.questions))
                 case .failure(let error):
-                    debugPrint(error)
                     completion(.failure(error))
             }
         }
@@ -160,6 +158,10 @@ class SCQuestionViewModel: NSObject {
         }
     }
     
+    var isNeedToShowFilter: Bool {
+        !isNeedToHideQuestionTableView
+    }
+    
 }
 
 extension SCQuestionViewModel {
@@ -176,7 +178,7 @@ extension SCQuestionViewModel {
     
     func getPostByTag(_ tag: String, _ sort: SCQuestionSortType, _ page: Int = 1) {
         currentSortType = sort
-        getQuestRouter.getQuestionByTag(tag, page, .activity, completion: getQuestionRequestCompletion)
+        getQuestRouter.getQuestionByTag(tag, page, sort, completion: getQuestionRequestCompletion)
     }
     
 }

@@ -17,7 +17,7 @@ class SCQuestionCellViewModel: NSObject {
     }
     
     var questionTitle: String {
-        questionInfo.questionTitle
+        questionInfo.questionTitle.decodeUTF8String()
     }
     
     var upvoteCount: String {
@@ -25,7 +25,12 @@ class SCQuestionCellViewModel: NSObject {
     }
     
     var tags: [String] {
-        questionInfo.questionTags
+        let questionTags = questionInfo.questionTags
+        if questionTags.count >= 4 {
+            return Array(questionTags[0 ..< 4])
+        } else {
+            return questionTags
+        }
     }
     
     var timestampWithPosterName: String {
@@ -33,7 +38,7 @@ class SCQuestionCellViewModel: NSObject {
             return ""
         }
         
-        return "asked \(posterTimeStamp) by \(questionInfo.questionPosterUserName)"
+        return "asked \(posterTimeStamp) by \(questionInfo.questionPosterUserName.decodeUTF8String())"
     }
     
     private var posterTimeStamp: String {

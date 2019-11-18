@@ -62,7 +62,7 @@ extension Date {
     
     // Returns the amount of days from another date
     func days(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.day], from: date, to: self).hour ?? 0
+        return Calendar.current.dateComponents([.day], from: date, to: self).day ?? 0
     }
     
     static func getTimeStampText(_ fromDate: Date) -> String {
@@ -70,7 +70,6 @@ extension Date {
         let hour = Date().hours(from: fromDate)
         let days = Date().days(from: fromDate)
         
-        debugPrint("min - \(minute), hr - \(hour)")
         var timeStamp = ""
         if hour < 1 {
             timeStamp = "\(minute)m ago"
@@ -91,6 +90,28 @@ extension Date {
         }
         
         return timeStamp
+    }
+    
+}
+
+extension String {
+    
+    func decodeUTF8String() -> String {
+        let decodeString = self.decodeUTF8StringUsingASCII()
+        guard let cString = decodeString.cString(using: .utf8) else {
+            return self
+        }
+        return String(utf8String: cString) ?? self
+    }
+    
+    private func decodeUTF8StringUsingASCII() -> String {
+        guard let data = self.data(using: .utf8) else {
+            return self
+        }
+         if let message = String(data: data, encoding: .ascii){
+                return message
+          }
+          return ""
     }
     
 }

@@ -78,9 +78,6 @@ class SCQuestionViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-//    private let settingsBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(SCQuestionViewController.settingsButtonPressed(_:)))
-    
-    
     private var refershControl: UIRefreshControl? = nil
     
     var questionNavigationType: SCQuestionNavigationType = .allPosts
@@ -134,18 +131,55 @@ class SCQuestionViewController: UIViewController {
         loginButton.isHidden = questionViewModel.isNeedToHideLoginButton
         noQuestionView.isHidden = questionViewModel.isNeedToHideNoQuestionView
         questionTableView.isHidden = questionViewModel.isNeedToHideQuestionTableView
+        
         if questionViewModel.isNeedToReloadTableView {
             questionTableView.reloadData()
         }
+        
         if questionViewModel.isNeedToIncludeSettingsBarButtonItem {
             let settingsBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(SCQuestionViewController.settingsButtonPressed(_:)))
             self.navigationItem.setLeftBarButton(settingsBarButtonItem, animated: true)
         } else {
             self.navigationItem.setLeftBarButton(nil, animated: true)
         }
+        
+        if questionViewModel.isNeedToShowFilter {
+            let filterBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "SortIcon"), style: .plain, target: self, action: #selector(SCQuestionViewController.sortButtonPressed(_:)))
+            self.navigationItem.setRightBarButton(filterBarButtonItem, animated: true)
+        } else {
+            self.navigationItem.setRightBarButton(nil, animated: true)
+        }
     }
     
-    @IBAction func sortButtonPressed(_ sender: Any) {
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let loginVC = segue.destination as? SCLoginViewController {
+            loginVC.successLoginCompletion = { [weak self] () -> () in
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.reloadButtonPressed(nil)
+            }
+        } else if let settingsVC = segue.destination as? SCSettingsViewController {
+            settingsVC.logOutSuccessCompletion = { [weak self] () -> () in
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.updateUI()
+            }
+        }
+    }
+    
+}
+
+// MARK: Event Handlers
+
+extension SCQuestionViewController {
+    
+    @objc func sortButtonPressed(_ sender: Any?) {
         let bottomSortActionSheet = UIAlertController.init(title: "Sort By", message: "Select questions sort type.", preferredStyle: .actionSheet)
         
         let actionHandler: ((UIAlertAction) -> Void)? = { [weak self] (action) in
@@ -180,11 +214,11 @@ class SCQuestionViewController: UIViewController {
             case .activity:
                 activity.setValue(true, forKey: "checked")
             case .hot:
-                activity.setValue(true, forKey: "checked")
+                hot.setValue(true, forKey: "checked")
             case .votes:
-                activity.setValue(true, forKey: "checked")
+                votes.setValue(true, forKey: "checked")
             case .creation:
-                activity.setValue(true, forKey: "checked")
+                creation.setValue(true, forKey: "checked")
         }
         
         bottomSortActionSheet.addAction(activity)
@@ -196,6 +230,14 @@ class SCQuestionViewController: UIViewController {
         self.present(bottomSortActionSheet, animated: true, completion: nil)
     }
     
+    @objc func pullToRefresh() {
+        refershControl?.beginRefreshing()
+        reloadButtonPressed(nil)
+    }
+    
+    @objc func settingsButtonPressed(_ sender: Any?) {
+        self.performSegue(withIdentifier: Constants.settingsSegue, sender: nil)
+    }
     
     @IBAction func reloadButtonPressed(_ sender: Any?) {
         switch config {
@@ -210,43 +252,11 @@ class SCQuestionViewController: UIViewController {
         }
     }
     
-    @objc func pullToRefresh() {
-        refershControl?.beginRefreshing()
-        reloadButtonPressed(nil)
-    }
-    
-    @objc func settingsButtonPressed(_ sender: Any?) {
-        self.performSegue(withIdentifier: Constants.settingsSegue, sender: nil)
-    }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let loginVC = segue.destination as? SCLoginViewController {
-            loginVC.successLoginCompletion = { [weak self] () -> () in
-                guard let strongSelf = self else {
-                    return
-                }
-                strongSelf.reloadButtonPressed(nil)
-            }
-        } else if let settingsVC = segue.destination as? SCSettingsViewController {
-            settingsVC.logOutSuccessCompletion = { [weak self] () -> () in
-                guard let strongSelf = self else {
-                    return
-                }
-                strongSelf.updateUI()
-            }
-        }
-    }
-    
-
 }
 
+// MARK: Table View DataSource & Delegate
+
 extension SCQuestionViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    // MARK: Table View DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         questionViewModel.questions.count
@@ -272,6 +282,8 @@ extension SCQuestionViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+
+// MARK: SCQuestionTableViewCellDelegate Implemenation
 
 extension SCQuestionViewController: SCQuestionTableViewCellDelegate {
     

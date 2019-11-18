@@ -26,6 +26,7 @@ class SCQuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var tagsCollectionView: UICollectionView!
     @IBOutlet weak var tagsCVHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var tagsCVWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var tagsCVFlowLayout: UICollectionViewFlowLayout! {
         didSet {
             tagsCVFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -48,7 +49,8 @@ class SCQuestionTableViewCell: UITableViewCell {
         timestampWithPosterNameLabel.text = cellViewModel.timestampWithPosterName
         upvoteWrapperView.layer.cornerRadius = upvoteWrapperView.frame.height / 2
         tagsCollectionView.reloadData()
-        tagsCVHeightConstraint.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
+//        tagsCVHeightConstraint.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
+        tagsCVWidthConstraint.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.width
     }
     
     private func tagsCollectionViewConfigure() {
