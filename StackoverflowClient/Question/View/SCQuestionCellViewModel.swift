@@ -26,8 +26,8 @@ class SCQuestionCellViewModel: NSObject {
     
     var tags: [String] {
         let questionTags = questionInfo.questionTags
-        if questionTags.count >= 4 {
-            return Array(questionTags[0 ..< 4])
+        if questionTags.count >= 3 {
+            return Array(questionTags[0 ..< 3])
         } else {
             return questionTags
         }

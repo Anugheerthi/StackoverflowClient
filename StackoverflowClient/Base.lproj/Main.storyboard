@@ -17,14 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzx-Qy-nNX">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USZ-yJ-xnS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
@@ -40,18 +32,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hzx-Qy-nNX" secondAttribute="trailing" id="4OU-BG-Rux"/>
                             <constraint firstItem="USZ-yJ-xnS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RvN-A4-pUq"/>
                             <constraint firstItem="USZ-yJ-xnS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yfa-RC-WGO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hzx-Qy-nNX" secondAttribute="bottom" id="g5E-ZQ-yff"/>
                             <constraint firstItem="USZ-yJ-xnS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tST-EE-AlE"/>
-                            <constraint firstItem="Hzx-Qy-nNX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uFH-S9-FzH"/>
-                            <constraint firstItem="Hzx-Qy-nNX" firstAttribute="top" secondItem="USZ-yJ-xnS" secondAttribute="bottom" id="yPD-y7-mdw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="authWebView" destination="Hzx-Qy-nNX" id="ZYJ-0n-drs"/>
+                        <outlet property="navigationBar" destination="USZ-yJ-xnS" id="A5r-2G-KZ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -161,6 +149,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stackviewer iOS Application" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyJ-hi-LJB" userLabel="Question Title">
                                                     <rect key="frame" x="15" y="15" width="384" height="26.5"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="Question Title"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="fpR-vJ-VYD"/>
                                                     </constraints>
@@ -191,6 +180,7 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="Upvote Wrapper View"/>
                                                     <constraints>
                                                         <constraint firstItem="a3I-2V-RqN" firstAttribute="top" secondItem="nuw-df-twF" secondAttribute="top" constant="10" id="9H6-01-AsZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="a3I-2V-RqN" secondAttribute="trailing" id="Gnv-zw-nbX"/>
@@ -204,6 +194,7 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAh-l3-plF">
                                                     <rect key="frame" x="94" y="56.5" width="305" height="64"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="Timestamp With Poster Name Label"/>
                                                     <string key="text">asked Nov 17, 2019 by Johnasked Nov 17, 2019 by Johnasked Nov 17, 2019 by Johnasked Nov 17, 2019 by Johnasked Nov 17, 2019 by Johnasked Nov 17, 2019 by Johnasked Nov 17, 2019 by Johnasked Nov 17, 2019 by Johnasked Nov 17, 2019 by John</string>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -213,7 +204,6 @@
                                                     <rect key="frame" x="15" y="130.5" width="384" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="384" id="4mq-P6-YWY"/>
                                                         <constraint firstAttribute="height" constant="30" id="8qR-V8-Oe6"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="l5Q-Sl-mNR">
@@ -231,9 +221,9 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JO-27-4Zn">
-                                                                        <rect key="frame" x="5" y="0.0" width="110" height="35"/>
+                                                                        <rect key="frame" x="5" y="7" width="110" height="21"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Title Label"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="30" id="Aub-ox-ehn"/>
                                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="coi-AK-88P"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
@@ -243,16 +233,15 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="5JO-27-4Zn" firstAttribute="top" secondItem="liF-EY-540" secondAttribute="top" id="933-Vg-BJK"/>
+                                                                    <constraint firstItem="5JO-27-4Zn" firstAttribute="top" secondItem="liF-EY-540" secondAttribute="top" constant="7" id="933-Vg-BJK"/>
                                                                     <constraint firstAttribute="trailing" secondItem="5JO-27-4Zn" secondAttribute="trailing" constant="5" id="W3d-s2-9lf"/>
                                                                     <constraint firstItem="5JO-27-4Zn" firstAttribute="leading" secondItem="liF-EY-540" secondAttribute="leading" constant="5" id="Wxe-Ca-VgA"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="5JO-27-4Zn" secondAttribute="bottom" id="m86-h0-hWI"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="5JO-27-4Zn" secondAttribute="bottom" constant="7" id="m86-h0-hWI"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <size key="customSize" width="120" height="35"/>
                                                             <connections>
-                                                                <outlet property="maxWidthConstraint" destination="coi-AK-88P" id="ak8-KL-XIf"/>
                                                                 <outlet property="titleLabel" destination="5JO-27-4Zn" id="vXv-1D-VIk"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -261,15 +250,15 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="bVr-dy-gcs" secondAttribute="trailing" constant="15" id="4qP-Ff-Qfc"/>
                                                 <constraint firstItem="RAh-l3-plF" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="nuw-df-twF" secondAttribute="bottom" id="6DU-aV-g4E"/>
                                                 <constraint firstItem="YyJ-hi-LJB" firstAttribute="top" secondItem="xbQ-k5-e93" secondAttribute="top" constant="15" id="HEk-RV-X7E"/>
                                                 <constraint firstItem="nuw-df-twF" firstAttribute="top" secondItem="YyJ-hi-LJB" secondAttribute="bottom" constant="15" id="HLf-HI-Kkg"/>
                                                 <constraint firstItem="RAh-l3-plF" firstAttribute="trailing" secondItem="YyJ-hi-LJB" secondAttribute="trailing" id="Hc3-BY-CwW"/>
                                                 <constraint firstItem="RAh-l3-plF" firstAttribute="top" secondItem="nuw-df-twF" secondAttribute="top" id="LUt-63-b4p"/>
-                                                <constraint firstItem="bVr-dy-gcs" firstAttribute="leading" secondItem="nuw-df-twF" secondAttribute="leading" id="Ng7-z5-tte"/>
                                                 <constraint firstAttribute="trailing" secondItem="YyJ-hi-LJB" secondAttribute="trailing" constant="15" id="UrP-XS-5kt"/>
+                                                <constraint firstItem="bVr-dy-gcs" firstAttribute="leading" secondItem="xbQ-k5-e93" secondAttribute="leading" constant="15" id="Uxz-om-n5V"/>
                                                 <constraint firstItem="nuw-df-twF" firstAttribute="leading" secondItem="YyJ-hi-LJB" secondAttribute="leading" id="Yg4-r2-3Hl"/>
-                                                <constraint firstItem="bVr-dy-gcs" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="RAh-l3-plF" secondAttribute="trailing" id="a4I-Tr-KCf"/>
                                                 <constraint firstItem="bVr-dy-gcs" firstAttribute="top" secondItem="nuw-df-twF" secondAttribute="bottom" constant="10" id="dff-Ji-mog"/>
                                                 <constraint firstAttribute="bottom" secondItem="bVr-dy-gcs" secondAttribute="bottom" constant="15.5" id="fEZ-JD-6tD"/>
                                                 <constraint firstItem="RAh-l3-plF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nuw-df-twF" secondAttribute="trailing" constant="15" id="pMj-hY-3tP"/>
@@ -280,7 +269,6 @@
                                             <outlet property="questionTitleLabel" destination="YyJ-hi-LJB" id="4bE-9a-o3k"/>
                                             <outlet property="tagsCVFlowLayout" destination="l5Q-Sl-mNR" id="WEm-MW-c7i"/>
                                             <outlet property="tagsCVHeightConstraint" destination="8qR-V8-Oe6" id="PJc-Wx-Bsr"/>
-                                            <outlet property="tagsCVWidthConstraint" destination="4mq-P6-YWY" id="dx6-Vx-1DN"/>
                                             <outlet property="tagsCollectionView" destination="bVr-dy-gcs" id="se1-PP-BCt"/>
                                             <outlet property="timestampWithPosterNameLabel" destination="RAh-l3-plF" id="7Kl-YZ-2dF"/>
                                             <outlet property="upvoteLabel" destination="a3I-2V-RqN" id="zeb-ov-5Ev"/>

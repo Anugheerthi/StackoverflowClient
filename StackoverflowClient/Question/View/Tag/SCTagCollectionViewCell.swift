@@ -16,41 +16,46 @@ class SCTagCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet private var maxWidthConstraint: NSLayoutConstraint! {
-        didSet {
-//            maxWidthConstraint.isActive = false
-        }
-    }
-    
-    var maxWidth: CGFloat? = nil {
-        didSet {
-            guard let maxWidth = maxWidth else {
-                return
-            }
-//            maxWidthConstraint.isActive = true
-//            maxWidthConstraint.constant = maxWidth
-        }
-    }
-    
     func config(_ tag: String) {
         titleLabel.text = tag
         titleLabel.text = tag
         layer.borderWidth = Constants.borderWidth
         layer.borderColor = UIColor.lightGray.cgColor
-        
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        contentView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            contentView.leftAnchor.constraint(equalTo: leftAnchor),
-//            contentView.rightAnchor.constraint(equalTo: rightAnchor),
-//            contentView.topAnchor.constraint(equalTo: topAnchor),
-//            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//            ])
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            contentView.leftAnchor.constraint(equalTo: leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            ])
     }
     
+}
+
+class LeftAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        let attributes = super.layoutAttributesForElements(in: rect)
+
+        var leftMargin = sectionInset.left
+        var maxY: CGFloat = -1.0
+        attributes?.forEach { layoutAttribute in
+            if layoutAttribute.frame.origin.y >= maxY {
+                leftMargin = sectionInset.left
+            }
+
+            layoutAttribute.frame.origin.x = leftMargin
+
+            leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing
+            maxY = max(layoutAttribute.frame.maxY , maxY)
+        }
+
+        return attributes
+    }
 }

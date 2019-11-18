@@ -11,14 +11,17 @@ import WebKit
 
 class SCLoginViewController: UIViewController {
 
-    @IBOutlet weak var authWebView: WKWebView!
+    var authWebView: WKWebView?
     
     var authManager = SCAuthManager()
     var successLoginCompletion: (() -> ())? = nil
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        authWebView.navigationDelegate = self
+        authWebView = WKWebView.init(frame: .zero)
+        authWebView?.addAsSubViewWithEqualConstraintTo(self.view, .init(top: navigationBar.frame.size.height, left: 0.0, bottom: 0.0, right: 0.0))
+        authWebView?.navigationDelegate = self
         authManager.startAuthenticateStackExchange { [weak self] (result) in
             guard let strongSelf = self else {
                 return
@@ -29,7 +32,7 @@ class SCLoginViewController: UIViewController {
                 strongSelf.dismiss(animated: true, completion: strongSelf.successLoginCompletion)
             case .success(let html):
                 let baseURL = URL(string: "https://stackoverflow.com")
-                strongSelf.authWebView.loadHTMLString(html, baseURL: baseURL)
+                strongSelf.authWebView?.loadHTMLString(html, baseURL: baseURL)
             case .failure(let error):
                 strongSelf.presentAlert(error.localizedDescription)
             }
@@ -79,7 +82,7 @@ extension SCLoginViewController: WKNavigationDelegate {
             }
         } else if responseURLCompoent.fragment == "error=access_denied&error_description=user did not authorize application" {
             decisionHandler(.allow)
-            presentAlert("You did not authorize application.") { [weak self] in
+            presentAlert("You did not authorize this application.") { [weak self] in
                 guard let strongSelf = self else {
                     return
                 }

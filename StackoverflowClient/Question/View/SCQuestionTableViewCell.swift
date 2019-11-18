@@ -17,6 +17,7 @@ class SCQuestionTableViewCell: UITableViewCell {
     private enum Constants {
         static let spacing: CGFloat = 10
         static let tagCellReuseID = "TagCell"
+        static let tagsCVPadding: CFloat = 30
     }
     
     @IBOutlet weak var questionTitleLabel: UILabel!
@@ -26,7 +27,6 @@ class SCQuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var tagsCollectionView: UICollectionView!
     @IBOutlet weak var tagsCVHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var tagsCVWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var tagsCVFlowLayout: UICollectionViewFlowLayout! {
         didSet {
             tagsCVFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -36,6 +36,10 @@ class SCQuestionTableViewCell: UITableViewCell {
     var delegate: SCQuestionTableViewCellDelegate? = nil
     
     private var cellViewModel: SCQuestionCellViewModel? = nil
+    
+    private var collectionViewWidth: CGFloat {
+        return self.contentView.frame.size.width - CGFloat(Constants.tagsCVPadding)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,8 +53,6 @@ class SCQuestionTableViewCell: UITableViewCell {
         timestampWithPosterNameLabel.text = cellViewModel.timestampWithPosterName
         upvoteWrapperView.layer.cornerRadius = upvoteWrapperView.frame.height / 2
         tagsCollectionView.reloadData()
-//        tagsCVHeightConstraint.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
-        tagsCVWidthConstraint.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.width
     }
     
     private func tagsCollectionViewConfigure() {
@@ -77,7 +79,6 @@ extension SCQuestionTableViewCell: UICollectionViewDataSource, UICollectionViewD
             return UICollectionViewCell()
         }
         tagCell.config(tags[indexPath.item])
-        tagCell.maxWidth = collectionView.bounds.width - Constants.spacing
         
         return tagCell
     }

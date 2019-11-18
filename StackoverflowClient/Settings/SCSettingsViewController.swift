@@ -29,12 +29,21 @@ class SCSettingsViewController: UIViewController {
             }
             switch result {
             case .success:
+                strongSelf.removeCookies()
                 strongSelf.presentAlert("Logged Out Successfully.") {
                     strongSelf.dismiss(animated: true, completion: strongSelf.logOutSuccessCompletion)
                 }
             case .failure(let error):
                 strongSelf.presentAlert(error.localizedDescription)
             }
+        }
+    }
+    
+    func removeCookies() {
+        let cookieJar = HTTPCookieStorage.shared
+
+        for cookie in cookieJar.cookies! {
+            cookieJar.deleteCookie(cookie)
         }
     }
     

@@ -115,3 +115,19 @@ extension String {
     }
     
 }
+
+extension UIView {
+    
+    func addAsSubViewWithEqualConstraintTo(_ containerView: UIView, _ edgeInset: UIEdgeInsets = .zero) {
+        self.frame = containerView.bounds
+        containerView.addSubview(self)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: containerView.topAnchor, constant: edgeInset.top),
+            self.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: edgeInset.left),
+            self.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: edgeInset.right),
+            self.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: edgeInset.bottom),
+            ])
+    }
+    
+}
