@@ -100,6 +100,7 @@ class SCQuestionViewController: UIViewController {
         questionTableView.rowHeight = UITableView.automaticDimension
         questionTableView.dataSource = self
         questionTableView.delegate = self
+        questionTableView.prefetchDataSource = self
         configPullToRefresh()
     }
     
@@ -161,7 +162,7 @@ class SCQuestionViewController: UIViewController {
                 guard let strongSelf = self else {
                     return
                 }
-                strongSelf.reloadButtonPressed(nil)
+                strongSelf.updateConfig()
             }
         } else if let settingsVC = segue.destination as? SCSettingsViewController {
             settingsVC.logOutSuccessCompletion = { [weak self] () -> () in
@@ -232,7 +233,7 @@ extension SCQuestionViewController {
     
     @objc func pullToRefresh() {
         refershControl?.beginRefreshing()
-        reloadButtonPressed(nil)
+        updateConfig()
     }
     
     @objc func settingsButtonPressed(_ sender: Any?) {
@@ -240,6 +241,14 @@ extension SCQuestionViewController {
     }
     
     @IBAction func reloadButtonPressed(_ sender: Any?) {
+        updateConfig()
+    }
+    
+    /*
+     * Update Config from Pull to refresh, Success login completion, Reload Button
+     */
+    
+    func updateConfig() {
         switch config {
             case .allPosts(let sort):
                 config = .allPosts(sort)
@@ -251,34 +260,49 @@ extension SCQuestionViewController {
                 break
         }
     }
-    
 }
 
 // MARK: Table View DataSource & Delegate
 
-extension SCQuestionViewController: UITableViewDataSource, UITableViewDelegate {
+extension SCQuestionViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        questionViewModel.questions.count
+        questionViewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let questionCell = tableView.dequeueReusableCell(withIdentifier: Constants.questionCellReuseID, for: indexPath) as? SCQuestionTableViewCell else {
-            return UITableViewCell()
+        switch questionViewModel.getCellType(indexPath) {
+            case .question:
+                let questionCell = questionViewModel.getTableViewCell(tableView, indexPath, SCQuestionTableViewCell.self)
+                let question = questionViewModel.questions[indexPath.row]
+                questionCell.delegate = self
+                let cellViewModel = SCQuestionCellViewModel(question)
+                questionCell.configureQuestionCell(cellViewModel)
+                return questionCell
+            case .loader:
+                return questionViewModel.getTableViewCell(tableView, indexPath, SCQuestionTableViewCell.self)
         }
-        
-        let question = questionViewModel.questions[indexPath.row]
-        questionCell.delegate = self
-        let cellViewModel = SCQuestionCellViewModel(question)
-        questionCell.configureQuestionCell(cellViewModel)
-        
-        return questionCell
     }
     
     // Table View Delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    // Table View Data Source Prefetch
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+        guard questionViewModel.isNeedToIncludePaginationLoaderCell else {
+            return
+        }
+        
+        if indexPaths.contains(questionViewModel.paginationIndexPath()) {
+            questionViewModel.isPaginationRequestEnable = true
+            updateConfig()
+        }
+        
     }
     
 }

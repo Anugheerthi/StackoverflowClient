@@ -162,23 +162,57 @@ class SCQuestionViewModel: NSObject {
         !isNeedToHideQuestionTableView
     }
     
+    var isNeedToIncludePaginationLoaderCell: Bool {
+        return hasMoreContent
+    }
+    
+    var numberOfRows: Int {
+        isNeedToIncludePaginationLoaderCell ? questions.count + 1 : questions.count
+    }
+    
+    func paginationIndexPath() -> IndexPath {
+        return IndexPath(row: questions.count, section: 0)
+    }
+    
+    func getCellType(_ indexPath: IndexPath) -> SCQuestionTableViewCellType {
+        guard isNeedToIncludePaginationLoaderCell else {
+            return .question
+        }
+ 
+        return indexPath.row == paginationIndexPath().row ? .loader : .question
+    }
+    
+    func getTableViewCell<T: UITableViewCell>(_ tableView: UITableView, _ indexPath: IndexPath, _ customTableCellClass: T.Type) -> T {
+        guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: getCellType(indexPath).rawValue, for: indexPath) as? T else {
+            return T()
+        }
+        
+        return tableViewCell
+    }
+    
 }
+
+enum SCQuestionTableViewCellType: String {
+    case question = "QuestionCell"
+    case loader = "LoaderCell"
+}
+
 
 extension SCQuestionViewModel {
     
-    func getAllPosts(_ sort: SCQuestionSortType, _ page: Int = 1) {
+    func getAllPosts(_ sort: SCQuestionSortType) {
         currentSortType = sort
-        getQuestRouter.getQuestions(page, sort, completion: getQuestionRequestCompletion)
+        getQuestRouter.getQuestions(currentPage, sort, completion: getQuestionRequestCompletion)
     }
     
-    func getMyPosts(_ sort: SCQuestionSortType, _ page: Int = 1) {
+    func getMyPosts(_ sort: SCQuestionSortType) {
         currentSortType = sort
-        getQuestRouter.getMyQuestions(page, sort, completion: getQuestionRequestCompletion)
+        getQuestRouter.getMyQuestions(currentPage, sort, completion: getQuestionRequestCompletion)
     }
     
-    func getPostByTag(_ tag: String, _ sort: SCQuestionSortType, _ page: Int = 1) {
+    func getPostByTag(_ tag: String, _ sort: SCQuestionSortType) {
         currentSortType = sort
-        getQuestRouter.getQuestionByTag(tag, page, sort, completion: getQuestionRequestCompletion)
+        getQuestRouter.getQuestionByTag(tag, currentPage, sort, completion: getQuestionRequestCompletion)
     }
     
 }
