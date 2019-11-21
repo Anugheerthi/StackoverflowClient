@@ -109,8 +109,7 @@ extension SCAPIRouter {
                     do {
                         let parsedData = try jsonDecoder.decode(T.self, from: data)
                         return .success(parsedData)
-                    } catch let error {
-                        debugPrint("\(error)")
+                    } catch _ {
                         return .failure(ResponseError.jsonParser)
                     }
                 } else {

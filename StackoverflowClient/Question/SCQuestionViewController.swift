@@ -230,6 +230,7 @@ extension SCQuestionViewController {
     
     @objc func pullToRefresh() {
         refershControl?.beginRefreshing()
+        questionViewModel.isPaginationRequestEnable = false
         updateConfig()
     }
     
@@ -291,7 +292,7 @@ extension SCQuestionViewController: UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         
-        guard questionViewModel.isNeedToIncludePaginationLoaderCell else {
+        guard questionViewModel.isNeedToIncludePaginationLoaderCell && !questionViewModel.isPaginationRequestEnable else {
             return
         }
         

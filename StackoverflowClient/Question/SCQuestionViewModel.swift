@@ -21,6 +21,8 @@ class SCQuestionViewModel: NSObject {
             }
             if !isPaginationRequestEnable {
                 questions.removeAll()
+            } else {
+                isPaginationRequestEnable = false
             }
             questions.append(contentsOf: newQuestions)
         }
