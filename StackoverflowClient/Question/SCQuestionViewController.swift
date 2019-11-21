@@ -33,8 +33,6 @@ class SCQuestionViewController: UIViewController {
     var config: SCQuestonRequestConfig = .allPosts(.activity) {
         didSet {
             
-            
-            
             if !questionViewModel.isPaginationRequestEnable {
                 questionViewModel.currentPage = 1
             } else {
@@ -51,7 +49,6 @@ class SCQuestionViewController: UIViewController {
                         activityIndicator.startAnimating()
                     }
             }
-            
             
             questionViewModel.getQuestion(config) { [weak self] (result) in
                 guard let strongSelf = self else {

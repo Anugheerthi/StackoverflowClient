@@ -90,11 +90,4 @@ extension SCQuestionTableViewCell: UICollectionViewDataSource, UICollectionViewD
         delegate?.pushToQuestionVCOnTagPress(tag)
     }
     
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
-//        tagsCollectionView.frame = .init(origin: .zero, size: CGSize(width: targetSize.width, height: CGFloat(MAXFLOAT)))
-//        tagsCollectionView.layoutIfNeeded()
-//
-//        return tagsCollectionView.collectionViewLayout.collectionViewContentSize
-//    }
-    
 }

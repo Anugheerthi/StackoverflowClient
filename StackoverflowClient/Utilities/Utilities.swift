@@ -176,23 +176,6 @@ extension String {
         result.append(contentsOf: self[position...])
         return result
     }
-//    func decodeUTF8String() -> String {
-//        let decodeString = self.decodeUTF8StringUsingASCII()
-//        guard let cString = decodeString.cString(using: .utf8) else {
-//            return self
-//        }
-//        return String(utf8String: cString) ?? self
-//    }
-//
-//    private func decodeUTF8StringUsingASCII() -> String {
-//        guard let data = self.data(using: .utf8, allowLossyConversion: true) else {
-//            return self
-//        }
-//         if let message = String(data: data, encoding: .nonLossyASCII){
-//                return message
-//          }
-//          return ""
-//    }
     
 }
 
